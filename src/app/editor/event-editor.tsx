@@ -1,0 +1,203 @@
+'use client'
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { EventData, EventCommand, EventLookup } from "./types";
+import { CommandCard, EditorCard } from "./command";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { Button } from "@/components/ui/button";
+import { Copy } from "lucide-react";
+
+import allCommands from '../../data/eventcommands.json';
+const commandsLookup: EventLookup = allCommands.reduce((acc, command) => {
+  acc[command.name] = command;
+  return acc;
+}, {} as EventLookup);
+
+interface EventEditorProps {
+  commands: EventCommand[];
+  setCommands: (commands: EventCommand[]) => void;
+  isVerbose: boolean;
+  cId: number;
+  setCId: (id: number) => void;
+  script: string;
+}
+
+export function EventEditor({ 
+  commands, 
+  setCommands, 
+  isVerbose, 
+  cId, 
+  setCId,
+  script
+}: EventEditorProps) {
+  const { toast } = useToast();
+  const [isPreviewScript, setIsPreviewScript] = useState(false);
+  const [shownCommands, setShownCommands] = useState(allCommands);
+  const addCommand = (name: string, args: string[]) => {
+    const newId = cId;
+    const newCommand = {
+      id: newId,
+      ...commandsLookup[name],
+      arguments: args.map(arg => arg.trim())
+    };
+    setCommands([...commands, newCommand]);
+    setCId(cId + 1);
+  }
+
+  const removeCommand = (id: number | undefined) => {
+    if (id !== undefined) {
+      setCommands(commands.filter((c) => c.id !== id));
+    }
+  }
+
+  const updateCommand = (id: number, args: string[]) => {
+    setCommands(commands.map((c) => c.id === id ? { ...c, arguments: args } : c));
+  }
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 h-[calc(100vh-250px)]">
+      {/* Column 1: Commands */}
+      <Card className="h-full">
+        <CardHeader>
+          <CardTitle>Commands</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="mb-4">
+            <Input
+              placeholder="Search preconditions..."
+              onChange={(e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                if (searchTerm === "") {
+                  setShownCommands(allCommands);
+                  return;
+                }
+                const filteredCommands = allCommands.filter(
+                  (command) =>
+                    command.name.toLowerCase().includes(searchTerm) ||
+                    command.description.toLowerCase().includes(searchTerm)
+                );
+                setShownCommands(filteredCommands);
+              }}
+            />
+          </div>
+          <ScrollArea className="h-[calc(100vh-300px)] overflow-y-auto">
+            <div className="p-1 space-y-1">
+              {shownCommands.map((command, index) => (
+                <EditorCard 
+                  key={index} 
+                  type="event"
+                  card={command}
+                  isVerbose={isVerbose} 
+                  addCard={addCommand}
+                />
+              ))}
+            </div>
+          </ScrollArea>
+        </CardContent>
+      </Card>
+
+      {/* Column 2: Script Editor */}
+      <Card className="h-full">
+        <CardHeader className="flex flex-row items-center justify-between">
+          <CardTitle>Script</CardTitle>
+          <div className="flex flex-row items-center gap-2">
+            <Switch id="script-as-block-or-string-switch" checked={isPreviewScript} onCheckedChange={setIsPreviewScript} />
+            <Label htmlFor="script-as-block-or-string-switch">Show script preview</Label>
+          </div>
+        </CardHeader>
+        <CardContent>
+          {isPreviewScript && (
+            <div className="flex justify-end mb-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  navigator.clipboard.writeText(script);
+                  toast({
+                    title: "Copied to clipboard"
+                  });
+                }}
+              >
+                <Copy className="h-4 w-4 mr-2" />
+                Copy Script
+              </Button>
+            </div>
+          )}
+          <ScrollArea className="h-[calc(100vh-300px)] overflow-y-auto">
+            {isPreviewScript ? (
+              <div className="bg-slate-100 dark:bg-slate-800 p-3 rounded min-h-full font-mono text-sm">
+                <pre className="whitespace-pre-wrap">
+                  {script}
+                </pre>
+              </div>
+            ) : (
+              <div className="p-1 space-y-1">
+                {commands.map((cmd) => (
+                  <CommandCard
+                    key={cmd.id}
+                    id={cmd.id}
+                    type="event"
+                    card={cmd}
+                    isVerbose={isVerbose}
+                    removeCard={removeCommand}
+                    updateArgs={updateCommand}
+                  />
+                ))}
+              </div>
+            )}
+          </ScrollArea>
+        </CardContent>
+      </Card>
+
+      {/* Column 3: Preview/Properties */}
+      <Card className="h-full">
+        <CardHeader>
+          <CardTitle>Properties</CardTitle>
+        </CardHeader>
+        <CardContent className="h-[calc(100%-60px)] overflow-y-auto">
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-sm font-medium mb-2">Command Properties</h3>
+              <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded space-y-3">
+                <div>
+                  <label className="text-xs font-medium">Character</label>
+                  <Input placeholder="Character name" size={1} />
+                </div>
+                <div>
+                  <label className="text-xs font-medium">Text</label>
+                  <Input placeholder="Dialog text" size={1} />
+                </div>
+                <div>
+                  <label className="text-xs font-medium">Portrait</label>
+                  <Select>
+                    <SelectTrigger className="text-xs">
+                      <SelectValue placeholder="Select portrait" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="default">Default</SelectItem>
+                      <SelectItem value="happy">Happy</SelectItem>
+                      <SelectItem value="sad">Sad</SelectItem>
+                      <SelectItem value="angry">Angry</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-sm font-medium mb-2">Preview</h3>
+              <div className="bg-slate-200 dark:bg-slate-900 rounded aspect-video flex items-center justify-center text-sm text-slate-500">
+                Preview will appear here
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+} 

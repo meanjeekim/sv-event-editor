@@ -1,0 +1,300 @@
+[
+    {
+      "name": "a",
+      "argumentNames": [
+        "ambient light name"
+      ],
+      "alias": null,
+      "category": "World/Context",
+      "description": "Sets ambient lighting by name. Does not revert when the event ends."
+    },
+    {
+      "name": "b",
+      "argumentNames": [
+        "weather"
+      ],
+      "alias": null,
+      "category": "World/Context",
+      "description": "Checks current weather. Valid values: 'rainy', 'stormy', 'snowy', 'sunny', 'windy'. Append ' festival' for festival version (this doesn't seem to work though)."
+    },
+    {
+      "name": "d",
+      "argumentNames": [
+        "day of month"
+      ],
+      "alias": null,
+      "category": "World/Context",
+      "description": "Checks the current day of the month."
+    },
+    {
+      "name": "e",
+      "argumentNames": [
+        "excluded days of week..."
+      ],
+      "alias": "dayOfWeek",
+      "category": "World/Context",
+      "description": "Checks that the current day of the week is none of the specified days. argumentNames are space-separated day names (e.g., 'Mon', 'Tue')."
+    },
+    {
+      "name": "t",
+      "argumentNames": [
+        "min time",
+        "max time"
+      ],
+      "alias": null,
+      "category": "World/Context",
+      "description": "Checks if the current time is within the specified range (inclusive)."
+    },
+    {
+      "name": "w",
+      "argumentNames": [
+        "day of week"
+      ],
+      "alias": null,
+      "category": "World/Context",
+      "description": "Checks the current day of the week ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun')."
+    },
+    {
+      "name": "y",
+      "argumentNames": [
+        "season"
+      ],
+      "alias": null,
+      "category": "World/Context",
+      "description": "Checks the current season ('spring', 'summer', 'fall', 'winter')."
+    },
+    {
+      "name": "c",
+      "argumentNames": [
+        "number of specific active quests"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks number of active quests matching the specified ID."
+    },
+    {
+      "name": "k",
+      "argumentNames": [
+        "event IDs to check..."
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if any of the specified prerequisite event IDs have been seen."
+    },
+    {
+      "name": "l",
+      "argumentNames": [
+        "letter received"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the player has received the specified mail letter ID."
+    },
+    {
+      "name": "m",
+      "argumentNames": [
+        "min money"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the player has at least the specified amount of money."
+    },
+    {
+      "name": "n",
+      "argumentNames": [
+        "NPC name"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the specified NPC is present at the current location."
+    },
+    {
+      "name": "o",
+      "argumentNames": [
+        "NPC name"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the player's spouse is the specified NPC."
+    },
+    {
+      "name": "p",
+      "argumentNames": [
+        "NPC name"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the player has met the specified NPC."
+    },
+    {
+      "name": "q",
+      "argumentNames": [],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the player is dating anyone."
+    },
+    {
+      "name": "r",
+      "argumentNames": [
+        "random chance"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks against a random chance (0 to 1 scale)."
+    },
+    {
+      "name": "s",
+      "argumentNames": [
+        "min house upgrade level"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks the player's house upgrade level (0=basic, 1=kitchen, 2=baby, 3=cellar)."
+    },
+    {
+      "name": "u",
+      "argumentNames": [
+        "number of years"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks the number of years passed."
+    },
+    {
+      "name": "x",
+      "argumentNames": [
+        "event IDs to exclude..."
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if none of the specified event IDs have been seen."
+    },
+    {
+      "name": "z",
+      "argumentNames": [],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if it's the player's first year."
+    },
+    {
+      "name": "C",
+      "argumentNames": [
+        "NPC name",
+        "min hearts"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the player has at least the minimum heart level with the specified NPC."
+    },
+    {
+      "name": "F",
+      "argumentNames": [],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the player has seen the Community Center intro event."
+    },
+    {
+      "name": "L",
+      "argumentNames": [],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the language is not English."
+    },
+    {
+      "name": "N",
+      "argumentNames": [
+        "secret note ID"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the player has found the specified secret note."
+    },
+    {
+      "name": "O",
+      "argumentNames": [
+        "community center area ID"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the specified Community Center area is complete (0=Pantry, 1=Crafts Room, 2=Fish Tank, 3=Boiler Room, 4=Vault, 5=Bulletin Board)."
+    },
+    {
+      "name": "P",
+      "argumentNames": [
+        "pet name"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the player's pet has the specified name."
+    },
+    {
+      "name": "S",
+      "argumentNames": [
+        "skill name",
+        "min level"
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the player has reached the minimum level in the specified skill (Farming, Fishing, Foraging, Mining, Combat, Luck)."
+    },
+    {
+      "name": "X",
+      "argumentNames": [
+        "event IDs..."
+      ],
+      "alias": null,
+      "category": "Game state queries",
+      "description": "Checks if the player has seen *all* of the specified event IDs."
+    },
+    {
+      "name": "f",
+      "argumentNames": [
+        "farmer total hearts",
+        "number of farmers"
+      ],
+      "alias": null,
+      "category": "Current player",
+      "description": "Checks if the combined hearts of the specified number of farmers is equal or greater than the heart count."
+    },
+    {
+      "name": "g",
+      "argumentNames": [
+        "gender"
+      ],
+      "alias": null,
+      "category": "Current player",
+      "description": "Checks the main player's gender. 'male' or 'female'."
+    },
+    {
+      "name": "i",
+      "argumentNames": [
+        "item index"
+      ],
+      "alias": null,
+      "category": "Current player",
+      "description": "Checks if the player has the specified item in their inventory."
+    },
+    {
+      "name": "h",
+      "argumentNames": [],
+      "alias": null,
+      "category": "Host player",
+      "description": "Checks if the player character is the host."
+    },
+    {
+      "name": "H",
+      "argumentNames": [],
+      "alias": null,
+      "category": "Host player",
+      "description": "Checks if the player has a horse."
+    },
+    {
+      "name": "j",
+      "argumentNames": [
+        "min players"
+      ],
+      "alias": null,
+      "category": "Host player",
+      "description": "Checks for a minimum number of players in the game session."
+    }
+  ]

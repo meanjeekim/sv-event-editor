@@ -1,0 +1,1171 @@
+[
+    {
+      "name": "addConversationTopic",
+      "argumentNames": [
+        "topic ID",
+        "duration"
+      ],
+      "category": "Dialogue & Interaction",
+      "description": "Adds a conversation topic to the game for a number of days (default 1)."
+    },
+    {
+      "name": "addFloorProp",
+      "argumentNames": [
+        "prop index",
+        "tileX",
+        "tileY"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Adds a floor prop object at the specified tile."
+    },
+    {
+      "name": "addLargeTerrainFeature",
+      "argumentNames": [
+        "terrain feature index",
+        "tileX",
+        "tileY"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Adds a large terrain feature (like bushes) at the specified tile."
+    },
+    {
+      "name": "addLantern",
+      "argumentNames": [
+        "index",
+        "tileX",
+        "tileY",
+        "held"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Adds a lantern light source."
+    },
+    {
+      "name": "addMail",
+      "argumentNames": [
+        "mail ID",
+        "add tomorrrow? T/F",
+        "no letter? T/F"
+      ],
+      "category": "Quests & Mail",
+      "description": "Adds mail to the player's mailbox."
+    },
+    {
+      "name": "addMailReceived",
+      "argumentNames": [
+        "mail ID"
+      ],
+      "category": "Quests & Mail",
+      "description": "Marks a mail ID as received (without sending mail)."
+    },
+    {
+      "name": "addObject",
+      "argumentNames": [
+        "tileX",
+        "tileY",
+        "object index"
+      ],
+      "category": "Items & Inventory",
+      "description": "Adds a world object at the specified tile."
+    },
+    {
+      "name": "addQuest",
+      "argumentNames": [
+        "quest ID"
+      ],
+      "category": "Quests & Mail",
+      "description": "Adds a quest to the player's journal."
+    },
+    {
+      "name": "addTemporaryActor",
+      "argumentNames": [
+        "sprite name",
+        "sprite index X",
+        "sprite index Y",
+        "tileX",
+        "tileY",
+        "facing direction",
+        "is farmer? T/F",
+        "reflect? T/F",
+        "color"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Spawns a temporary actor/NPC for the event."
+    },
+    {
+      "name": "addTerrainFeature",
+      "argumentNames": [
+        "terrain feature index",
+        "tileX",
+        "tileY"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Adds a terrain feature (like trees, flooring) at the specified tile."
+    },
+    {
+      "name": "ambientLight",
+      "argumentNames": [
+        "R",
+        "G",
+        "B"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Sets the ambient light color."
+    },
+    {
+      "name": "animate",
+      "argumentNames": [
+        "NPC name",
+        "start frame",
+        "end frame",
+        "duration",
+        "loop? T/F",
+        "flip? T/F"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Plays a specific animation sequence for an NPC."
+    },
+    {
+      "name": "awardFestivalPrize",
+      "argumentNames": [
+        "player name"
+      ],
+      "category": "Items & Inventory",
+      "description": "Gives the player the main prize for the current festival."
+    },
+    {
+      "name": "beginSimultaneousCommand",
+      "argumentNames": [],
+      "category": "Logic & Control Flow",
+      "description": "Starts a block where commands run simultaneously until endSimultaneousCommand."
+    },
+    {
+      "name": "broadcast",
+      "argumentNames": [
+        "command"
+      ],
+      "category": "Logic & Control Flow",
+      "description": "Sends a command to all other players in multiplayer."
+    },
+    {
+      "name": "changeMapTile",
+      "argumentNames": [
+        "layer name",
+        "tileX",
+        "tileY",
+        "tile index"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Changes a tile on a specific map layer."
+    },
+    {
+      "name": "changePortrait",
+      "argumentNames": [
+        "NPC name",
+        "portrait index"
+      ],
+      "category": "Dialogue & Interaction",
+      "description": "Changes the portrait used by an NPC for dialogue."
+    },
+    {
+      "name": "changeSprite",
+      "argumentNames": [
+        "NPC name",
+        "sprite index"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Changes the sprite index for an NPC."
+    },
+    {
+      "name": "changeStat",
+      "argumentNames": [
+        "stat key",
+        "value"
+      ],
+      "category": "Player State",
+      "description": "Changes a player stat."
+    },
+    {
+      "name": "clearTempSprites",
+      "argumentNames": [],
+      "category": "Character & NPC Management",
+      "description": "Removes all temporary sprites added by 'specificTemporarySprite'."
+    },
+    {
+      "name": "continue",
+      "argumentNames": [],
+      "category": "Movement & Positioning",
+      "description": "Resumes NPC movement after a 'stop' command."
+    },
+    {
+      "name": "cutscene",
+      "argumentNames": [
+        "cutscene ID"
+      ],
+      "category": "Logic & Control Flow",
+      "description": "Starts another cutscene event by ID."
+    },
+    {
+      "name": "dayUpdate",
+      "argumentNames": [
+        "days offset"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Runs the daily update logic for the current location."
+    },
+    {
+      "name": "debug",
+      "argumentNames": [
+        "command",
+        "args..."
+      ],
+      "category": "Logic & Control Flow",
+      "description": "Executes a debug command."
+    },
+    {
+      "name": "dialogue",
+      "argumentNames": [
+        "NPC name",
+        "dialogue key"
+      ],
+      "category": "Dialogue & Interaction",
+      "description": "Shows dialogue from an NPC using a key from their dialogue file."
+    },
+    {
+      "name": "doAction",
+      "argumentNames": [
+        "tileX",
+        "tileY"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Makes the farmer perform the action associated with the specified tile."
+    },
+    {
+      "name": "drawOffset",
+      "argumentNames": [
+        "NPC name",
+        "X offset",
+        "Y offset"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Applies a drawing offset to an NPC."
+    },
+    {
+      "name": "elliottbook",
+      "argumentNames": [],
+      "category": "Special Actions",
+      "description": "Initiates Elliott's book reading/writing sequence."
+    },
+    {
+      "name": "emote",
+      "argumentNames": [
+        "NPC name",
+        "emote index",
+        "duration",
+        "preceded by question? T/F"
+      ],
+      "category": "Dialogue & Interaction",
+      "description": "Makes an NPC show an emote bubble."
+    },
+    {
+      "name": "end",
+      "argumentNames": [
+        "remove festival props? T/F",
+        "return true? T/F",
+        "end warp"
+      ],
+      "category": "Logic & Control Flow",
+      "description": "Ends the current event."
+    },
+    {
+      "name": "endBehavior",
+      "argumentNames": [
+        "NPC name"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Seems related to ending specific NPC behaviors or states initiated by the event."
+    },
+    {
+      "name": "endDialogue",
+      "argumentNames": [
+        "NPC name"
+      ],
+      "category": "Dialogue & Interaction",
+      "description": "Closes the dialogue box for the specified NPC."
+    },
+    {
+      "name": "endSimultaneousCommand",
+      "argumentNames": [],
+      "category": "Logic & Control Flow",
+      "description": "Ends a block of simultaneous commands."
+    },
+    {
+      "name": "event",
+      "argumentNames": [
+        "event ID"
+      ],
+      "category": "Logic & Control Flow",
+      "description": "Starts another event by ID."
+    },
+    {
+      "name": "faceDirection",
+      "argumentNames": [
+        "NPC name",
+        "direction",
+        "times to try"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Makes an NPC face a specific direction (0=up, 1=right, 2=down, 3=left)."
+    },
+    {
+      "name": "fadeIn",
+      "argumentNames": [
+        "duration"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Fades the screen in from black."
+    },
+    {
+      "name": "fadeOut",
+      "argumentNames": [
+        "duration"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Fades the screen out to black."
+    },
+    {
+      "name": "farmer",
+      "argumentNames": [
+        "sprite index X",
+        "sprite index Y",
+        "tileX",
+        "tileY",
+        "facing direction"
+      ],
+      "category": "Player State",
+      "description": "Warps the farmer and sets their sprite/facing direction."
+    },
+    {
+      "name": "farmerAnimation",
+      "argumentNames": [
+        "animation ID"
+      ],
+      "category": "Player State",
+      "description": "Plays a specific farmer animation."
+    },
+    {
+      "name": "farmerEat",
+      "argumentNames": [
+        "object index"
+      ],
+      "category": "Player State",
+      "description": "Makes the farmer eat the specified item."
+    },
+    {
+      "name": "farmerMotion",
+      "argumentNames": [
+        "motion index"
+      ],
+      "category": "Player State",
+      "description": "Sets the farmer's sprite to a specific motion frame."
+    },
+    {
+      "name": "farmerSit",
+      "argumentNames": [
+        "tileX",
+        "tileY"
+      ],
+      "category": "Player State",
+      "description": "Makes the farmer sit down."
+    },
+    {
+      "name": "fade",
+      "argumentNames": [
+        "duration",
+        "fade to black? T/F"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Fades the screen (defaults to fade out)."
+    },
+    {
+      "name": "festivalDialogue",
+      "argumentNames": [
+        "dialogue key"
+      ],
+      "category": "Dialogue & Interaction",
+      "description": "Shows dialogue using a key from the current festival's dialogue file."
+    },
+    {
+      "name": "finish",
+      "argumentNames": [],
+      "category": "Logic & Control Flow",
+      "description": "Marks the event as finished (similar to 'end' but might have subtle differences)."
+    },
+    {
+      "name": "fishing",
+      "argumentNames": [
+        "NPC name"
+      ],
+      "category": "Special Actions",
+      "description": "Makes an NPC start fishing."
+    },
+    {
+      "name": "fork",
+      "argumentNames": [
+        "event ID"
+      ],
+      "category": "Logic & Control Flow",
+      "description": "Starts a parallel event that runs alongside the current one."
+    },
+    {
+      "name": "friendship",
+      "argumentNames": [
+        "NPC name",
+        "points"
+      ],
+      "category": "Relationships",
+      "description": "Adds or removes friendship points with an NPC."
+    },
+    {
+      "name": "globalFade",
+      "argumentNames": [
+        "speed"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Globally fades the screen to black."
+    },
+    {
+      "name": "globalFadeToClear",
+      "argumentNames": [
+        "speed"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Globally fades the screen back to clear."
+    },
+    {
+      "name": "glow",
+      "argumentNames": [
+        "NPC name",
+        "R",
+        "G",
+        "B",
+        "hold? T/F"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Makes an NPC glow with a specific color."
+    },
+    {
+      "name": "grabObject",
+      "argumentNames": [
+        "NPC name",
+        "object index",
+        "grab frame offset"
+      ],
+      "category": "Items & Inventory",
+      "description": "Makes an NPC pick up an object."
+    },
+    {
+      "name": "grandpa",
+      "argumentNames": [],
+      "category": "Special Actions",
+      "description": "Initiates Grandpa's evaluation sequence."
+    },
+    {
+      "name": "halt",
+      "argumentNames": [],
+      "category": "Logic & Control Flow",
+      "description": "Stops all character movement and the camera."
+    },
+    {
+      "name": "harvey",
+      "argumentNames": [
+        "NPC name",
+        "dialogue key"
+      ],
+      "category": "Special Actions",
+      "description": "Seems specific to a Harvey event sequence, possibly involving dialogue."
+    },
+    {
+      "name": "holdUpItem",
+      "argumentNames": [
+        "NPC name",
+        "item index"
+      ],
+      "category": "Items & Inventory",
+      "description": "Makes an NPC hold up an item."
+    },
+    {
+      "name": "hospital",
+      "argumentNames": [
+        "NPC name"
+      ],
+      "category": "Special Actions",
+      "description": "Puts the specified NPC in the hospital bed."
+    },
+    {
+      "name": "ignoreMovementPause",
+      "argumentNames": [],
+      "category": "Movement & Positioning",
+      "description": "Allows NPC movement commands to continue even if the event is paused."
+    },
+    {
+      "name": "ignoreWeddings",
+      "argumentNames": [],
+      "category": "Logic & Control Flow",
+      "description": "Likely prevents wedding events from triggering during this event."
+    },
+    {
+      "name": "itemAboveHead",
+      "argumentNames": [
+        "NPC name",
+        "item index",
+        "duration"
+      ],
+      "category": "Items & Inventory",
+      "description": "Shows an item bouncing above an NPC's head."
+    },
+    {
+      "name": "jump",
+      "argumentNames": [
+        "NPC name",
+        "jump velocity"
+      ],
+      "category": "Movement & Positioning",
+      "description": "Makes an NPC jump."
+    },
+    {
+      "name": "loadActors",
+      "argumentNames": [],
+      "category": "Character & NPC Management",
+      "description": "Loads standard actors/NPCs for the current location."
+    },
+    {
+      "name": "lockDoor",
+      "argumentNames": [
+        "tileX",
+        "tileY"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Locks a door tile."
+    },
+    {
+      "name": "mailReceive",
+      "argumentNames": [
+        "mail ID"
+      ],
+      "category": "Quests & Mail",
+      "description": "Adds a mail ID to the player's received letters."
+    },
+    {
+      "name": "makeInvisible",
+      "argumentNames": [
+        "tileX",
+        "tileY",
+        "width",
+        "height",
+        "local only? T/F"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Makes a rectangular area of the map invisible."
+    },
+    {
+      "name": "message",
+      "argumentNames": [
+        "message text"
+      ],
+      "category": "Dialogue & Interaction",
+      "description": "Shows a simple message box with the specified text."
+    },
+    {
+      "name": "minedeath",
+      "argumentNames": [],
+      "category": "Special Actions",
+      "description": "Triggers the mine death sequence."
+    },
+    {
+      "name": "money",
+      "argumentNames": [
+        "amount",
+        "absolute? T/F"
+      ],
+      "category": "Player State",
+      "description": "Adds/removes money (or sets absolute amount)."
+    },
+    {
+      "name": "monsters",
+      "argumentNames": [
+        "monster names..."
+      ],
+      "category": "Character & NPC Management",
+      "description": "Spawns specified monsters."
+    },
+    {
+      "name": "move",
+      "argumentNames": [
+        "NPC name",
+        "x steps",
+        "y steps",
+        "facing direction",
+        "queued? T/F",
+        "continue? T/F"
+      ],
+      "category": "Movement & Positioning",
+      "description": "Moves an NPC a number of tiles."
+    },
+    {
+      "name": "name",
+      "argumentNames": [],
+      "category": "Special Actions",
+      "description": "Likely related to naming something (pet? child?)."
+    },
+    {
+      "name": "noresponse",
+      "argumentNames": [
+        "NPC name"
+      ],
+      "category": "Dialogue & Interaction",
+      "description": "Prevents an NPC from responding to clicks/interaction."
+    },
+    {
+      "name": "npc",
+      "argumentNames": [
+        "NPC name",
+        "sprite index X",
+        "sprite index Y",
+        "tileX",
+        "tileY",
+        "facing direction"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Adds or repositions an NPC for the event."
+    },
+    {
+      "name": "offset",
+      "argumentNames": [
+        "NPC name",
+        "x offset",
+        "y offset"
+      ],
+      "category": "Movement & Positioning",
+      "description": "Applies a temporary positional offset to an NPC."
+    },
+    {
+      "name": "pause",
+      "argumentNames": [
+        "milliseconds"
+      ],
+      "category": "Logic & Control Flow",
+      "description": "Pauses the event for a duration."
+    },
+    {
+      "name": "perfectDeity",
+      "argumentNames": [],
+      "category": "Special Actions",
+      "description": "Initiates the Statue of Perfection sequence."
+    },
+    {
+      "name": "playSound",
+      "argumentNames": [
+        "sound ID"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Plays a sound effect by ID."
+    },
+    {
+      "name": "position",
+      "argumentNames": [
+        "NPC name",
+        "tileX",
+        "tileY"
+      ],
+      "category": "Movement & Positioning",
+      "description": "Instantly sets an NPC's tile position."
+    },
+    {
+      "name": "positionOffset",
+      "argumentNames": [
+        "NPC name",
+        "x offset",
+        "y offset"
+      ],
+      "category": "Movement & Positioning",
+      "description": "Applies a persistent positional offset to an NPC (differs from 'offset'?)."
+    },
+    {
+      "name": "proceed",
+      "argumentNames": [],
+      "category": "Movement & Positioning",
+      "description": "Allows a halted character (usually the farmer) to move again."
+    },
+    {
+      "name": "question",
+      "argumentNames": [
+        "question ID",
+        "question text with responses"
+      ],
+      "category": "Dialogue & Interaction",
+      "description": "Shows a question dialogue box with multiple choice answers."
+    },
+    {
+      "name": "quit",
+      "argumentNames": [],
+      "category": "Logic & Control Flow",
+      "description": "Immediately exits the event (force quit?)."
+    },
+    {
+      "name": "removeFloorProp",
+      "argumentNames": [
+        "tileX",
+        "tileY"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Removes a floor prop at the specified tile."
+    },
+    {
+      "name": "removeItem",
+      "argumentNames": [
+        "item index",
+        "amount"
+      ],
+      "category": "Items & Inventory",
+      "description": "Removes an item from the player's inventory."
+    },
+    {
+      "name": "removeLargeTerrainFeature",
+      "argumentNames": [
+        "tileX",
+        "tileY"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Removes a large terrain feature at the specified tile."
+    },
+    {
+      "name": "removeObject",
+      "argumentNames": [
+        "tileX",
+        "tileY"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Removes a world object at the specified tile."
+    },
+    {
+      "name": "removeQuest",
+      "argumentNames": [
+        "quest ID"
+      ],
+      "category": "Quests & Mail",
+      "description": "Removes a quest from the player's journal."
+    },
+    {
+      "name": "removeSprite",
+      "argumentNames": [
+        "NPC name"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Removes an NPC/actor from the event."
+    },
+    {
+      "name": "removeTemporaryActor",
+      "argumentNames": [
+        "sprite name"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Removes a temporary actor added by 'addTemporaryActor'."
+    },
+    {
+      "name": "removeTerrainFeature",
+      "argumentNames": [
+        "tileX",
+        "tileY"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Removes a terrain feature at the specified tile."
+    },
+    {
+      "name": "removeTile",
+      "argumentNames": [
+        "tileX",
+        "tileY",
+        "layer name"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Removes a tile from a specific map layer."
+    },
+    {
+      "name": "rename",
+      "argumentNames": [
+        "NPC name",
+        "new name"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Temporarily renames an NPC for the event."
+    },
+    {
+      "name": "resetVariable",
+      "argumentNames": [
+        "NPC name"
+      ],
+      "category": "Logic & Control Flow",
+      "description": "Purpose unclear, likely resets some internal state for an NPC."
+    },
+    {
+      "name": "restore",
+      "argumentNames": [],
+      "category": "Logic & Control Flow",
+      "description": "Likely restores some game state previously modified by the event."
+    },
+    {
+      "name": "screenFlash",
+      "argumentNames": [
+        "R",
+        "G",
+        "B",
+        "A",
+        "hold? T/F"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Flashes the screen with a specified color and alpha."
+    },
+    {
+      "name": "script",
+      "argumentNames": [
+        "script ID"
+      ],
+      "category": "Logic & Control Flow",
+      "description": "Executes an event script (seems internal or deprecated)."
+    },
+    {
+      "name": "secretNote",
+      "argumentNames": [
+        "note ID"
+      ],
+      "category": "Special Actions",
+      "description": "Shows a specific secret note."
+    },
+    {
+      "name": "seen",
+      "argumentNames": [
+        "event ID"
+      ],
+      "category": "Logic & Control Flow",
+      "description": "Marks an event ID as seen by the player."
+    },
+    {
+      "name": "setRunning",
+      "argumentNames": [
+        "NPC name",
+        "isRunning? T/F"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Sets the running state for an NPC (or farmer if name omitted)."
+    },
+    {
+      "name": "setvisible",
+      "argumentNames": [
+        "tileX",
+        "tileY"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Makes an invisible tile visible again."
+    },
+    {
+      "name": "shake",
+      "argumentNames": [
+        "NPC name",
+        "milliseconds"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Makes an NPC's sprite shake."
+    },
+    {
+      "name": "showFrame",
+      "argumentNames": [
+        "NPC name",
+        "frame index",
+        "hold? T/F"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Sets an NPC's sprite to a specific animation frame."
+    },
+    {
+      "name": "showItems",
+      "argumentNames": [],
+      "category": "Items & Inventory",
+      "description": "Purpose unclear, possibly related to displaying items in a shop or festival context."
+    },
+    {
+      "name": "showKiss",
+      "argumentNames": [
+        "NPC name",
+        "show heart? T/F"
+      ],
+      "category": "Relationships",
+      "description": "Shows the kissing animation with the specified NPC."
+    },
+    {
+      "name": "showToolUpgrade",
+      "argumentNames": [
+        "tool name"
+      ],
+      "category": "Special Actions",
+      "description": "Shows the tool upgrade animation for the specified tool."
+    },
+    {
+      "name": "shuffleMine",
+      "argumentNames": [
+        "mine level"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Resets/shuffles a specific mine level."
+    },
+    {
+      "name": "sit",
+      "argumentNames": [
+        "NPC name",
+        "tileX",
+        "tileY",
+        "direction"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Makes an NPC sit down (optionally at a specific location)."
+    },
+    {
+      "name": "skippable",
+      "argumentNames": [],
+      "category": "Logic & Control Flow",
+      "description": "Makes the current event skippable."
+    },
+    {
+      "name": "playSound",
+      "argumentNames": [
+        "sound ID",
+        "local only? T/F"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Plays a sound effect, optionally only for the local player."
+    },
+    {
+      "name": "speak",
+      "argumentNames": [
+        "NPC name",
+        "dialogue text"
+      ],
+      "category": "Dialogue & Interaction",
+      "description": "Shows dialogue spoken by an NPC using the provided text directly."
+    },
+    {
+      "name": "specificTemporarySprite",
+      "argumentNames": [
+        "sprite key",
+        "tileX",
+        "tileY",
+        "alpha fade? T/F",
+        "flip? T/F",
+        "depth",
+        "interval",
+        "shake intensity",
+        "shake speed",
+        "loops",
+        "hold last frame? T/F"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Adds a temporary animated sprite effect (like explosions, sparkles)."
+    },
+    {
+      "name": "speed",
+      "argumentNames": [
+        "NPC name",
+        "speed value"
+      ],
+      "category": "Movement & Positioning",
+      "description": "Sets the movement speed for an NPC."
+    },
+    {
+      "name": "stop",
+      "argumentNames": [],
+      "category": "Movement & Positioning",
+      "description": "Stops the movement of the NPC specified in the last 'move' command."
+    },
+    {
+      "name": "stopAdvancedMoves",
+      "argumentNames": [],
+      "category": "Movement & Positioning",
+      "description": "Stops complex movement sequences (details unclear)."
+    },
+    {
+      "name": "stopAnimation",
+      "argumentNames": [
+        "NPC name",
+        "frame index"
+      ],
+      "category": "Character & NPC Management",
+      "description": "Stops the current animation for an NPC, optionally setting a final frame."
+    },
+    {
+      "name": "stopBaby",
+      "argumentNames": [
+        "crib spot index"
+      ],
+      "category": "Special Actions",
+      "description": "Stops the baby animation/state."
+    },
+    {
+      "name": "stopFishing",
+      "argumentNames": [
+        "NPC name"
+      ],
+      "category": "Special Actions",
+      "description": "Makes an NPC stop fishing."
+    },
+    {
+      "name": "stopMusic",
+      "argumentNames": [],
+      "category": "Visual & Audio Effects",
+      "description": "Stops the currently playing music."
+    },
+    {
+      "name": "switchEvent",
+      "argumentNames": [
+        "event ID"
+      ],
+      "category": "Logic & Control Flow",
+      "description": "Switches to a different event immediately."
+    },
+    {
+      "name": "temporaryAnimatedSprite",
+      "argumentNames": [
+        "sprite index",
+        "duration",
+        "loops",
+        "tileX",
+        "tileY",
+        "color R",
+        "color G",
+        "color B",
+        "flicker? T/F",
+        "big? T/F",
+        "flip? T/F",
+        "layer depth",
+        "alpha fade",
+        "scale",
+        "interval",
+        "motion X",
+        "motion Y",
+        "shake intensity",
+        "dialogue key",
+        "sound key"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Adds a temporary animated sprite effect with many customization options."
+    },
+    {
+      "name": "textAboveHead",
+      "argumentNames": [
+        "NPC name",
+        "text",
+        "duration"
+      ],
+      "category": "Dialogue & Interaction",
+      "description": "Shows text in a bubble above an NPC's head."
+    },
+    {
+      "name": "time",
+      "argumentNames": [
+        "time"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Sets the current time of day."
+    },
+    {
+      "name": "toss",
+      "argumentNames": [
+        "NPC name",
+        "tileX",
+        "tileY",
+        "arc height"
+      ],
+      "category": "Movement & Positioning",
+      "description": "Makes an NPC appear to be tossed towards a tile."
+    },
+    {
+      "name": "unlockDoor",
+      "argumentNames": [
+        "tileX",
+        "tileY"
+      ],
+      "category": "World & Environment Modification",
+      "description": "Unlocks a door tile."
+    },
+    {
+      "name": "up",
+      "argumentNames": [],
+      "category": "Player State",
+      "description": "Likely related to making the farmer stand up if sitting."
+    },
+    {
+      "name": "viewport",
+      "argumentNames": [
+        "tileX",
+        "tileY",
+        "speed",
+        "makeGlobal? T/F"
+      ],
+      "category": "Visual & Audio Effects",
+      "description": "Moves the camera viewport to center on a specific tile."
+    },
+    {
+      "name": "viewportFreeze",
+      "argumentNames": [],
+      "category": "Visual & Audio Effects",
+      "description": "Freezes the camera viewport in its current position."
+    },
+    {
+      "name": "waitFor",
+      "argumentNames": [
+        "command type",
+        "extra args..."
+      ],
+      "category": "Logic & Control Flow",
+      "description": "Pauses the event until a specific condition is met (e.g., 'waitFor Mover', 'waitFor TemporarySprite')."
+    },
+    {
+      "name": "waitForOtherPlayers",
+      "argumentNames": [],
+      "category": "Logic & Control Flow",
+      "description": "Pauses the event until all players reach this command."
+    },
+    {
+      "name": "warp",
+      "argumentNames": [
+        "NPC name",
+        "tileX",
+        "tileY"
+      ],
+      "category": "Movement & Positioning",
+      "description": "Instantly warps an NPC to a specific tile."
+    },
+    {
+      "name": "warpFarmer",
+      "argumentNames": [
+        "location name",
+        "tileX",
+        "tileY",
+        "facing direction"
+      ],
+      "category": "Movement & Positioning",
+      "description": "Warps the farmer to a new location and tile."
+    },
+    {
+      "name": "wedding",
+      "argumentNames": [
+        "NPC name"
+      ],
+      "category": "Special Actions",
+      "description": "Initiates the wedding ceremony."
+    },
+    {
+      "name": "witch",
+      "argumentNames": [],
+      "category": "Special Actions",
+      "description": "Initiates the witch event sequence."
+    }
+  ]
