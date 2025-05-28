@@ -1,32 +1,25 @@
 'use client'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
-import { PreconditionData, EventData, PreconditionCommand, EventCommand, PreconditionLookup, EventLookup } from './editor/types';
-import { useEffect, useState } from "react";
+import { PreconditionCommand, EventCommand } from './editor/types';
+import { useState } from "react";
 import { PreconditionEditor } from "./editor/precondition-editor";
 import { EventEditor } from "./editor/event-editor";
+import { StarterCommands } from "./editor/starter-commands-editor";
 
 export default function Home() {
+  const [starterCommands, setStarterCommands] = useState<StarterCommands>({
+    music: "",
+    coordinates: {x: 0, y: 0},
+    characterPositions: []
+  });
   const [preconditions, setPreconditions] = useState<PreconditionCommand[]>([]);
   const [commands, setCommands] = useState<EventCommand[]>([]);
-  const [script, setScript] = useState<string>("");
-  const [preview, setPreview] = useState<string>("");
   const [isVerbose, setIsVerbose] = useState<boolean>(false);
   const [pId, setPId] = useState<number>(0);
   const [cId, setCId] = useState<number>(0);
-
-  function generateScript() {
-    let preconditionsScript = preconditions.map((p) => p.name + " " + p.arguments.join(" ")).join("/");
-    let argumentsScript = commands.map((c) => c.name + " " + c.arguments.join(" ")).join("/");
-    setScript("\"" + preconditionsScript + ": " + argumentsScript + "\"");
-  }
-
-  useEffect(() => {
-    generateScript();
-  }, [preconditions, commands]);
 
   return (
     <div className="container mx-auto py-8">
@@ -61,12 +54,14 @@ export default function Home() {
         {/* Script Tab */}
         <TabsContent value="script">
           <EventEditor 
+            setStarterCommands={setStarterCommands}
+            preconditions={preconditions}
+            starterCommands={starterCommands}
             commands={commands}
             setCommands={setCommands}
             isVerbose={isVerbose}
             cId={cId}
             setCId={setCId}
-            script={script}
           />
         </TabsContent>
       </Tabs>

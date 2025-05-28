@@ -35,24 +35,46 @@ function CompactInput({ className, type, ...props }: React.ComponentProps<"input
   )
 }
 
-function ResizingInput({ className, type, value = '', placeholder, onChange, ...props }: React.ComponentProps<"input">) {
+interface ResizingInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  spanOffset?: number;
+}
+
+function ResizingInput({ className, type, spanOffset = 0, value = '', placeholder, onChange, onBlur, ...props }: ResizingInputProps) {
   const spanRef = useRef<HTMLSpanElement>(null);
   const [inputWidth, setInputWidth] = useState<number>(0);
+  const [localValue, setLocalValue] = useState(value);
 
   useLayoutEffect(() => {
     if (spanRef.current) {
       // Add a small buffer to prevent text from being cut off
-      setInputWidth(spanRef.current.offsetWidth + 1);
+      setInputWidth(spanRef.current.offsetWidth + spanOffset + 1);
     }
-  }, [value, placeholder]);
+  }, [spanOffset, localValue, placeholder]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setLocalValue(e.target.value);
+    console.log("handleChange", e.target.value);
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (onChange) {
+      onChange(e);
+      console.log("handleBlur: onChange", e.target.value);
+    }
+    if (onBlur) {
+      onBlur(e);
+      console.log("handleBlur: onBlue", e.target.value);
+    }
+  };
 
   return (
     <div className="relative inline-block">
       <input
         type={type}
-        value={value}
+        value={localValue}
         placeholder={placeholder}
-        onChange={onChange}
+        onChange={handleChange}
+        onBlur={handleBlur}
         data-slot="input"
         className={cn(
           "file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-6 min-w-0 rounded-md border bg-transparent px-2 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-light disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
@@ -74,7 +96,7 @@ function ResizingInput({ className, type, value = '', placeholder, onChange, ...
           visibility: "hidden"
         }}
       >
-        {value || placeholder || ""}
+        {localValue || placeholder || ""}
       </span>
     </div>
   );

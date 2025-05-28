@@ -5,8 +5,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { EventData, EventCommand, EventLookup } from "./types";
+import { EventCommand, EventLookup, PreconditionCommand } from "./types";
 import { CommandCard, EditorCard } from "./command";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -14,27 +13,34 @@ import { Button } from "@/components/ui/button";
 import { Copy } from "lucide-react";
 
 import allCommands from '../../data/eventcommands.json';
+import { StarterCommandsEditor } from "./starter-commands-editor";
+import { StarterCommands } from "./starter-commands-editor";
+
 const commandsLookup: EventLookup = allCommands.reduce((acc, command) => {
   acc[command.name] = command;
   return acc;
 }, {} as EventLookup);
 
 interface EventEditorProps {
+  setStarterCommands: (starterCommands: StarterCommands) => void;
+  preconditions: PreconditionCommand[];
+  starterCommands: StarterCommands;
   commands: EventCommand[];
   setCommands: (commands: EventCommand[]) => void;
   isVerbose: boolean;
   cId: number;
   setCId: (id: number) => void;
-  script: string;
 }
 
 export function EventEditor({ 
+  setStarterCommands,
+  preconditions,
+  starterCommands,
   commands, 
   setCommands, 
   isVerbose, 
   cId, 
   setCId,
-  script
 }: EventEditorProps) {
   const { toast } = useToast();
   const [isPreviewScript, setIsPreviewScript] = useState(false);
@@ -60,6 +66,10 @@ export function EventEditor({
     setCommands(commands.map((c) => c.id === id ? { ...c, arguments: args } : c));
   }
 
+  const preconditionsScript = preconditions.map((p) => p.name + " " + p.arguments.join(" ")).join("/");
+  const starterCommandsScript = starterCommands.music + "/" + starterCommands.coordinates.x + "/" + starterCommands.coordinates.y + "/" + starterCommands.characterPositions.map((cp) => cp.characterId + " " + cp.x + " " + cp.y + " " + cp.direction);;
+  const argumentsScript = commands.map((c) => c.name + " " + c.arguments.join(" ")).join("/");
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 h-[calc(100vh-250px)]">
       {/* Column 1: Commands */}
@@ -70,7 +80,7 @@ export function EventEditor({
         <CardContent>
           <div className="mb-4">
             <Input
-              placeholder="Search preconditions..."
+              placeholder="Search event commands..."
               onChange={(e) => {
                 const searchTerm = e.target.value.toLowerCase();
                 if (searchTerm === "") {
@@ -91,7 +101,6 @@ export function EventEditor({
               {shownCommands.map((command, index) => (
                 <EditorCard 
                   key={index} 
-                  type="event"
                   card={command}
                   isVerbose={isVerbose} 
                   addCard={addCommand}
@@ -118,7 +127,7 @@ export function EventEditor({
                 variant="outline"
                 size="sm"
                 onClick={() => {
-                  navigator.clipboard.writeText(script);
+                  navigator.clipboard.writeText(preconditionsScript + ": " + starterCommandsScript + "/" + argumentsScript);
                   toast({
                     title: "Copied to clipboard"
                   });
@@ -133,7 +142,7 @@ export function EventEditor({
             {isPreviewScript ? (
               <div className="bg-slate-100 dark:bg-slate-800 p-3 rounded min-h-full font-mono text-sm">
                 <pre className="whitespace-pre-wrap">
-                  {script}
+                  {preconditionsScript + ": " + starterCommandsScript + "/" + argumentsScript}
                 </pre>
               </div>
             ) : (
@@ -163,38 +172,12 @@ export function EventEditor({
         <CardContent className="h-[calc(100%-60px)] overflow-y-auto">
           <div className="space-y-4">
             <div>
-              <h3 className="text-sm font-medium mb-2">Command Properties</h3>
-              <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded space-y-3">
-                <div>
-                  <label className="text-xs font-medium">Character</label>
-                  <Input placeholder="Character name" size={1} />
-                </div>
-                <div>
-                  <label className="text-xs font-medium">Text</label>
-                  <Input placeholder="Dialog text" size={1} />
-                </div>
-                <div>
-                  <label className="text-xs font-medium">Portrait</label>
-                  <Select>
-                    <SelectTrigger className="text-xs">
-                      <SelectValue placeholder="Select portrait" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="default">Default</SelectItem>
-                      <SelectItem value="happy">Happy</SelectItem>
-                      <SelectItem value="sad">Sad</SelectItem>
-                      <SelectItem value="angry">Angry</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-            </div>
-            <div>
               <h3 className="text-sm font-medium mb-2">Preview</h3>
               <div className="bg-slate-200 dark:bg-slate-900 rounded aspect-video flex items-center justify-center text-sm text-slate-500">
                 Preview will appear here
               </div>
             </div>
+            <StarterCommandsEditor setStarterCommands={setStarterCommands} starterCommands={starterCommands} />
           </div>
         </CardContent>
       </Card>

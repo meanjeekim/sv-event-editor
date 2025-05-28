@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { PreconditionCommand, PreconditionData, PreconditionLookup } from "./types";
+import { PreconditionCommand, PreconditionLookup } from "./types";
 import { CommandCard, EditorCard } from "./command";
 import allPreconditions from '../../data/preconditions.json';
 import { Input } from "@/components/ui/input";
@@ -77,7 +77,6 @@ export function PreconditionEditor({ pId, setPId, preconditions, setPrecondition
               {shownPreconditions.map((precondition) => (
                 <EditorCard 
                   key={precondition.name} 
-                  type="precondition"
                   card={precondition}
                   isVerbose={isVerbose} 
                   addCard={addPrecondition}

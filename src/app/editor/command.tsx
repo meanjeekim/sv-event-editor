@@ -7,7 +7,6 @@ import { useState } from "react"
 import { Plus, Trash2 } from "lucide-react"
 import { PreconditionData, EventData, PreconditionCommand, EventCommand } from "./types"
 interface EditorProps {
-  type: "precondition" | "event"
   card: PreconditionData | EventData
   isVerbose: boolean
   addCard: (name: string, args: string[]) => void
@@ -22,7 +21,7 @@ interface CommandProps {
   updateArgs: (id: number, args: string[]) => void
 }
 
-function EditorCard({ type, card, isVerbose, addCard }: EditorProps) {
+function EditorCard({ card, isVerbose, addCard }: EditorProps) {
   const [values, setValues] = useState<string[]>(new Array(card.argumentNames.length).fill(''));
 
   const handleChange = (index: number, value: string) => {
